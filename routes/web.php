@@ -23,6 +23,7 @@ Route::group(['middleware' => 'auth'], function ()
 
     //TAGS
     Route::get('tags/', 'TagsController@index')->name('tags.index');     // INDEX
+    Route::post('tags/store', 'TagsController@store')->name('tags.store');     // INDEX
 
 
 

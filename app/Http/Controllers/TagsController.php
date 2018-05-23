@@ -15,7 +15,7 @@ class TagsController extends Controller
   {
       $this->middleware('auth');
   }
-  
+
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +23,8 @@ class TagsController extends Controller
      */
     public function index()
     {
-        $tags             = Tags::where('user_id', Auth::id() );
+        $tags = Tags::where('user_id', Auth::id() )->orderBy('tag', 'asc')->get();;
+        ##dd($tags);
         return view('tags.index', compact('tags'));
     }
 
@@ -45,7 +46,21 @@ class TagsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try{
+
+
+          $input                    = $request->all();
+          $input['user_id']         = Auth::id();
+
+          $obj = Tags::create($input);
+
+          return redirect('tags')->with('status', 'Etiqueta creada!');
+
+        }catch (QueryException $e)
+        {
+              return redirect('tags')->with('status-error', 'Houston, tenemos un problema, intenta mas tarde');
+        }
+
     }
 
 
