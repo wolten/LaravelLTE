@@ -15,10 +15,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'auth'], function ()
+{
     //    Route::get('/link1', function ()    {
-//        // Uses Auth Middleware
-//    });
+    //        // Uses Auth Middleware
+    //    });
+
+    //TAGS
+    Route::get('tags/', 'TagsController@index')->name('tags.index');     // INDEX
+
+
 
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes

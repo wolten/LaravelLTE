@@ -12,7 +12,7 @@
         <ul class="sidebar-menu">
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>Dashboard</span></a></li>
-            <li><a href="#"><i class='fa fa-link'></i> <span>Etiquetas</span></a></li>
+            <li><a href="{{ url('tags') }}"><i class='fa fa-link'></i> <span>Etiquetas</span></a></li>
             <li><a href="#"><i class='fa fa-link'></i> <span>Monitores</span></a></li>
             <li class="treeview">
                 <a href="#"><i class='fa fa-cogs'></i> <span>Configuración</span> <i class="fa fa-angle-left pull-right"></i></a>
